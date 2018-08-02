@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "832669649305",
+    "firebase_url": "https://chow-dev.firebaseio.com",
+    "project_id": "chow-dev",
+    "storage_bucket": "chow-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832669649305:android:7b0f266d6e35ac7b",
+        "android_client_info": {
+          "package_name": "com.unleashed.chow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832669649305-gdgdpbli9nmmibnb7e91ajkk7bd9i5rv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.unleashed.chow",
+            "certificate_hash": "21d187b700253ca861723ef710ec073babd6ea82"
+          }
+        },
+        {
+          "client_id": "832669649305-gpp0strar3tihn5udf57acb1h0h20ndu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKSFfuisZvXU67NhtEOFb1g-Vk8e66a3U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832669649305-gpp0strar3tihn5udf57acb1h0h20ndu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
