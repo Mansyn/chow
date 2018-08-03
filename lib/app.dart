@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'backdrop.dart';
@@ -20,20 +21,40 @@ class _ChowAppState extends State<ChowApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Chow',
-      home: Backdrop(
+      home: _getLandingPage(),
+      theme: _kChowTheme,
+    );
+  }
+
+  Widget _getLandingPage() {
+    return StreamBuilder<FirebaseUser>(
+      stream: FirebaseAuth.instance.onAuthStateChanged,
+      builder: (BuildContext context, snapshot) {
+        if (snapshot.hasData) {
+          if (snapshot.data.providerData.length == 1) {
+            // logged in using email and password
+            return _getBackdrop(snapshot.data);
+          } else {
+            // logged in using other providers
+            return _getBackdrop(snapshot.data);
+          }
+        } else {
+          return LoginPage();
+        }
+      },
+    );
+  }
+
+  Backdrop _getBackdrop(FirebaseUser user) {
+    return Backdrop(
         currentCategory: _currentCategory,
         frontLayer: HomePage(category: _currentCategory),
         backLayer: CategoryMenuPage(
           currentCategory: _currentCategory,
           onCategoryTap: _onCategoryTap,
         ),
-        frontTitle: Text('CHOW'),
-        backTitle: Text('MENU'),
-      ),
-      initialRoute: '/login',
-      onGenerateRoute: _getRoute,
-      theme: _kChowTheme,
-    );
+        frontTitle: Text('CHOW: ' + user.displayName),
+        backTitle: Text('MENU'));
   }
 
   /// Function to call when a [Category] is tapped.
